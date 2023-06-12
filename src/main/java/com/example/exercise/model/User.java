@@ -2,10 +2,7 @@ package com.example.exercise.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Entity
 public class User {
@@ -16,9 +13,8 @@ public class User {
     @NotBlank (message = "ten khong duoc chong")
     @Size(min = 5,max =45,message = "ten khong duoc ngan hon 45 ky tu,va dai hon 5 ky tu")
     private String firstname;
-    @Pattern(regexp ="/(84|0[35789])+([0-9]{8})\\b/g")
     private String phonenumber;
-    @Size(min = 18)
+    @Min(value = 18)
     private int age;
     @Email
     private String email;

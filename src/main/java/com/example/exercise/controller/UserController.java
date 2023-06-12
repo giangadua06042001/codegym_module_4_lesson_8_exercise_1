@@ -23,13 +23,12 @@ public class UserController {
         modelAndView.addObject("user",new User());
         return modelAndView;
     }
-    @PostMapping("create")
+    @PostMapping("/create")
     public ModelAndView createUser(@Validated @ModelAttribute("user") User user, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return new ModelAndView("/create");
         }
         else {
-
            ModelAndView modelAndView=new ModelAndView("/view");
            modelAndView.addObject("user",  userService.save(user));
            return modelAndView;
